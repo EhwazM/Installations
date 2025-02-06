@@ -1,4 +1,5 @@
-nvim /etc/locale.gen
+# nvim /etc/locale.gen
+sed -i 's/^#en_US.UTF-8$/en_US.UTF-8/' /etc/locale.gen
 locale-gen
 read -p "What locale did you choose?:" _LocaleGen
 echo LANG=$_LocaleGen > /etc/locale.conf
@@ -63,12 +64,18 @@ sed -i 's/^#Include = /etc/pacman.d/mirrorlist$/Include = /etc/pacman.d/mirrorli
 
 pacman -Syu
 
-pacman -S xdg-user-dirs
+pacman -S xdg-user-dirs stow
 xdg-user-dirs-update
 su $_UserName -c "xdg-user-dirs-update"
 
+cd home/$_UserName
+git clone https://github.com/EhwazM/EhwazM-dotfiles
+cd EhwazM-dotfiles
+ls -lah
+stow .
+
 pacman -S gnu-free-fonts ttf-hack ttf-inconsolata noto-fonts-emoji fastfetch lsb-release git firefox kitty
 
-echo "you should umount everything with umounr -R /mnt"
+echo "you should umount everything with umount -R /mnt"
 
 exit
