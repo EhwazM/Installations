@@ -66,4 +66,7 @@ chmod +x Installations/System_requirements.sh
 
 cp Installations/Arch-chroot.sh /mnt/
 
-arch-chroot /mnt
+arch-chroot /mnt /bin/bash -c /Arch-chroot.sh
+
+umount -R /mnt/
+swapoff /dev/$_SWAP
