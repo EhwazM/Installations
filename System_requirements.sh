@@ -52,6 +52,8 @@ cd ~
 
 #Sddm
 sudo systemctl enable sddm.service
+sed -i 's/^Current=$/Current=catpuccin-mocha/' /etc/sddm.conf.d
+sed -i 's/^Current=$/Current=catpuccin-mocha/' /usr/lib/sddm/sddm.conf.d/default.conf
 
 # ZSH
 if ! pacman -Qs zsh; then
@@ -64,7 +66,7 @@ if ! pacman -Qs curl; then
     sudo pacman -S curl
 fi
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
