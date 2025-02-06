@@ -40,11 +40,11 @@ passwd $_UserName
 
 sed -i "/root ALL=(ALL:ALL) ALL/a $_UserName ALL=(ALL:ALL) ALL" /etc/sudoers
 
-pacman -S dhcp dhcpcd networkmanager iwd bluez bluez-utils
+pacman -S --needed dhcp dhcpcd networkmanager iwd bluez bluez-utils
 systemctl enable dhcpcd NetworkManager
 systemctl enable bluetooth
 
-pacman -S grub efibootmgr os-prober
+pacman -S --needed grub efibootmgr os-prober
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --removable
 
@@ -67,11 +67,11 @@ sed -i 's|^#Include = /etc/pacman.d/mirrorlist$|Include = /etc/pacman.d/mirrorli
 
 pacman -Syu
 
-pacman -S xdg-user-dirs stow
+pacman -S --needed xdg-user-dirs stow
 xdg-user-dirs-update
 su $_UserName -c "xdg-user-dirs-update"
 
-pacman -S gnu-free-fonts ttf-hack ttf-inconsolata noto-fonts-emoji fastfetch lsb-release git firefox kitty
+pacman -S --needed gnu-free-fonts ttf-hack ttf-inconsolata noto-fonts-emoji fastfetch lsb-release git firefox kitty
 
 echo "you should umount everything with umount -R /mnt"
 
