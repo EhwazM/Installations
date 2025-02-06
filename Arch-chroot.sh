@@ -4,7 +4,8 @@ set -e
 # nvim /etc/locale.gen
 sed -i 's/^#\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen
 locale-gen
-read -p "What locale did you choose?:" _LocaleGen
+# read -p "What locale did you choose?:" _LocaleGen
+_LocaleGen="en_US.UTF-8"
 echo LANG=$_LocaleGen > /etc/locale.conf
 export LANG=$_LocaleGen
 
@@ -13,7 +14,8 @@ pacman -Sy
 ln -sf /usr/share/zoneinfo/America/Bogota /etc/localtime
 hwclock -w
 
-read -p "Kyemap:" _KeyMap
+# read -p "Kyemap:" _KeyMap
+_KeyMap="us"
 echo KEYMAP=$_KeyMap > /etc/vconsole.conf
 
 read -p "PC Name:" _PCName
@@ -28,12 +30,12 @@ echo "
 127.0.1.1     $_PCName.localdomain $_PCName" >> /etc/hosts
 
 
-echo "Set root password:"
+echo -e "\nSet root password:"
 passwd
 
 read -p "User Name:" _UserName
 useradd -m -g users -G wheel -s /bin/bash $_UserName
-echo "Set $_UserName password"
+echo -e "\nSet $_UserName password"
 passwd $_UserName
 
 # nvim /etc/sudoers

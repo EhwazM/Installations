@@ -11,11 +11,24 @@ fi
 
 systemctl start --now NetworkManager.service
 
-git clone https://github.com/EhwazM/EhwazM-dotfiles
-cd EhwazM-dotfiles
-ls -lah
-stow .
-cd ~
+# Installing Stow and dotfiles
+if ! pacman -Qs stow; then
+    echo "Installing zsh..."
+    sudo pacman -S stow
+fi
+
+if [ -d '~/EhwazM-dotfiles/' ]; then
+    cd EhwazM-dotfiles
+    ls -lah
+    stow .
+    cd ~
+else
+    git clone https://github.com/EhwazM/EhwazM-dotfiles
+    cd EhwazM-dotfiles
+    ls -lah
+    stow .
+    cd ~
+fi
 
 # Install video drivers:
 sudo pacman -S --needed xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon vulkan-tools mesa lib32-mesa libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vdpauinfo clinfo
