@@ -2,6 +2,7 @@
 set -e
 
 loadkeys us
+timedatectl set-ntp true
 
 read -p "Do you need to connect to wi-fi? (y/n)" _YesNotWIFI
 
@@ -11,10 +12,8 @@ if [ "$_YesNotWIFI" = "y" ]; then
     iwctl --passphrase $_RedPassword station wlan0 connect $_RedName
 fi
 
-timedatectl set-ntp true
-
-_PartitionsNames=false
-while [ "$_PartitionsNames" = false ]; do
+_PartitionsNames=0
+while [ "$_PartitionsNames" -eq 0 ]; do
     echo "Name your partitions after you created them:"
     read -p "EFI: " _EFI
     read -p "SWAP: " _SWAP
@@ -44,14 +43,16 @@ mkfs.ext4 -L $_RootName /dev/$_FS
 echo "Partitions formatting done."
 
 # Mounting
-mount /dev/$_FS /mnt/
 mkdir -p /mnt/boot/efi/
+mount /dev/$_FS /mnt/
 mount /dev/$_EFI /mnt/boot/efi/
 
 echo "Partitions mounting done."
 read -p "Do you have Laptop?: (y/n)" _YesNot2
 
-if ["$_YesNot2" = "y"]; then
+pacman -Sy
+
+if [ "$_YesNot2" = "y" ]; then
     pacstrap /mnt git curl base base-devel neovim linux-zen linux-zen-headers linux-firmware mkinitcpio xf86-input-libinput
 else
     pacstrap /mnt git curl base base-devel neovim linux-zen linux-zen-headers linux-firmware mkinitcpio
@@ -59,5 +60,10 @@ fi
 
 genfstab -p /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
+
+chmod +x Installations/Arch-chroot.sh
+chmod +x Installations/System_requirements.sh
+
+cp Installations/Arch-chroot.sh /mnt/
 
 arch-chroot /mnt

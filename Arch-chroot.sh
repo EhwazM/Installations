@@ -1,5 +1,8 @@
+#!/bin/bash
+set -e
+
 # nvim /etc/locale.gen
-sed -i 's/^#en_US.UTF-8$/en_US.UTF-8/' /etc/locale.gen
+sed -i 's/^#\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen
 locale-gen
 read -p "What locale did you choose?:" _LocaleGen
 echo LANG=$_LocaleGen > /etc/locale.conf
@@ -22,7 +25,7 @@ echo "
 
 ::1           localhost
 
-127.0.1.1     $_PCName.localdomain $PCName" >> /etc/hosts
+127.0.1.1     $_PCName.localdomain $_PCName" >> /etc/hosts
 
 
 echo "Set root password:"
