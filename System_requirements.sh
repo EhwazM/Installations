@@ -10,6 +10,12 @@ if [ "$_YesNotWIFI" = "y" ]; then
     nmcli device wifi connect $_RedName password $_RedPassword
 fi
 
+git clone https://github.com/EhwazM/EhwazM-dotfiles
+cd EhwazM-dotfiles
+ls -lah
+stow .
+cd ~
+
 #Install video drivers:
 sudo pacman -S --needed xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon vulkan-tools mesa lib32-mesa libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vdpauinfo clinfo
 #Install audio drivers:
