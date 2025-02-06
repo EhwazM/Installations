@@ -43,8 +43,8 @@ mkfs.ext4 -L $_RootName /dev/$_FS
 echo "Partitions formatting done."
 
 # Mounting
-mkdir -p /mnt/boot/efi/
 mount /dev/$_FS /mnt/
+mkdir -p /mnt/boot/efi/
 mount /dev/$_EFI /mnt/boot/efi/
 
 echo "Partitions mounting done."
