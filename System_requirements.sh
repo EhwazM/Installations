@@ -49,3 +49,5 @@ fi
 
 chsh -s /bin/zsh EhwazM
 sudo chsh -s /bin/zsh root
+
+sudo systemctl enable sddm.service

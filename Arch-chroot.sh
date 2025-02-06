@@ -67,7 +67,7 @@ sed -i 's|^#Include = /etc/pacman.d/mirrorlist$|Include = /etc/pacman.d/mirrorli
 
 pacman -Syu
 
-pacman -S --needed xdg-user-dirs stow
+pacman -S --needed xdg-user-dirs 
 xdg-user-dirs-update
 su $_UserName -c "xdg-user-dirs-update"
 
