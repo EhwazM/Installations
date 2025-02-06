@@ -40,14 +40,16 @@ cd ~
 
 paru -Syu
 
-paru -S --needed `bat ~/Installations/pkglist.txt`
+paru -S --needed `cat ~/Installations/pkglist.txt`
 
 if ! pacman -Qs zsh; then
     echo "Installing zsh..."
     sudo pacman -S zsh
 fi
 
-chsh -s /bin/zsh EhwazM
+read -p "User Name:" _UserName
+
+chsh -s /bin/zsh $_UserName
 sudo chsh -s /bin/zsh root
 
 sudo systemctl enable sddm.service
