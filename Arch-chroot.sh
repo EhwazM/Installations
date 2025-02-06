@@ -55,7 +55,11 @@ sed -i 's/^#Color$/Color/' /etc/pacman.conf
 sed -i 's/^#CheckSpace$/CheckSpace/' /etc/pacman.conf
 sed -i 's/^#VerbosePkgLists$/VerbosePkgLists/' /etc/pacman.conf
 sed -i 's/^#ParallelDownloads = 5$/ParallelDownloads = 5/' /etc/pacman.conf
+
 sed -i "/#DisableSandbox/a ILoveCandy" /etc/sudoers
+
+sed -i 's/^#[multilib]$/[multilib]/' /etc/pacman.conf
+sed -i 's/^#Include = /etc/pacman.d/mirrorlist$/Include = /etc/pacman.d/mirrorlist/' /etc/pacman.conf
 
 pacman -Syu
 
