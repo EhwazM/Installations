@@ -45,7 +45,7 @@ echo "Partitions formatting done."
 
 # Mounting
 mount /dev/$_FS /mnt/
-mkdir -U /mnt/boot/efi/
+mkdir -p /mnt/boot/efi/
 mount /dev/$_EFI /mnt/boot/efi/
 
 echo "Partitions mounting done."
