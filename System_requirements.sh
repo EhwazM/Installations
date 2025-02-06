@@ -17,7 +17,7 @@ if ! pacman -Qs stow; then
     sudo pacman -S stow
 fi
 
-if [ -d '~/EhwazM-dotfiles' ]; then
+if [ -d "~/EhwazM-dotfiles" ]; then
     cd EhwazM-dotfiles
     ls -lah
     stow .
