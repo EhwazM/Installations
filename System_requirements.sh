@@ -13,7 +13,7 @@ systemctl start --now NetworkManager.service
 
 # Installing Stow and dotfiles
 if ! pacman -Qs stow; then
-    echo "Installing zsh..."
+    echo "Installing stow..."
     sudo pacman -S stow
 fi
 
