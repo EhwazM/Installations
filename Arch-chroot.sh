@@ -43,11 +43,11 @@ passwd $_UserName
 
 sed -i "/root ALL=(ALL:ALL) ALL/a $_UserName ALL=(ALL:ALL) ALL" /etc/sudoers
 
-pacman -S --needed dhcp dhcpcd networkmanager iwd bluez bluez-utils
+pacman -S --needed dhcp dhcpcd networkmanager iwd bluez bluez-utils --noconfirm
 systemctl enable dhcpcd NetworkManager
 systemctl enable bluetooth
 
-pacman -S --needed grub efibootmgr os-prober
+pacman -S --needed grub efibootmgr os-prober --noconfirm
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --removable
 
@@ -74,7 +74,7 @@ pacman -S --needed xdg-user-dirs
 xdg-user-dirs-update
 su $_UserName -c "xdg-user-dirs-update"
 
-pacman -S --needed gnu-free-fonts ttf-hack ttf-inconsolata noto-fonts-emoji fastfetch lsb-release git firefox kitty
+pacman -S --needed gnu-free-fonts ttf-hack ttf-inconsolata noto-fonts-emoji fastfetch lsb-release git firefox kitty --noconfirm
 
 echo "you should umount everything with umount -R /mnt"
 

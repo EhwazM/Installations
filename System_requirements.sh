@@ -24,12 +24,12 @@ stow .
 cd ~
 
 # Install video drivers:
-sudo pacman -S --needed xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon vulkan-tools mesa lib32-mesa libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vdpauinfo clinfo
+sudo pacman -S --needed xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon vulkan-tools mesa lib32-mesa libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vdpauinfo clinfo --noconfirm
 # Install audio drivers:
-sudo pacman -S --needed pipewire pipewire-audio gst-plugin-pipewire pipewire-alsa pipewire-jack pipewire-pulse pipewire-roc wireplumber realtime-privileges
+sudo pacman -S --needed pipewire pipewire-audio gst-plugin-pipewire pipewire-alsa pipewire-jack pipewire-pulse pipewire-roc wireplumber realtime-privileges --noconfirm
 
 # If you want to use Hyprland:
-sudo pacman -S hyprland brightnessctl pavucontrol waybar rofi-wayland cliphist sddm ranger ttf-nerd-fonts-symbols ttf-font-awesome breeze breeze-gtk gnome-keyring nwg-look qt6ct grim slurp xdg-desktop-portal-hyprland wev
+sudo pacman -S hyprland brightnessctl pavucontrol waybar rofi-wayland cliphist sddm ranger ttf-nerd-fonts-symbols ttf-font-awesome breeze breeze-gtk gnome-keyring nwg-look qt6ct grim slurp xdg-desktop-portal-hyprland wev --noconfirm
 
 # Installing Paru
 cd ~
@@ -41,7 +41,7 @@ cd ~
 
 # Misc Packages
 paru -Syu
-paru -S --needed `cat ~/Installations/pkglist.txt`
+paru -S --needed `cat ~/Installations/pkglist.txt` --noconfirm
 
 # Hyprsome
 git clone https://github.com/sopa0/hyprsome
@@ -52,19 +52,11 @@ cd ~
 
 #Sddm
 sudo systemctl enable sddm.service
-sed -i 's/^Current=$/Current=catpuccin-mocha/' /etc/sddm.conf.d
-sed -i 's/^Current=$/Current=catpuccin-mocha/' /usr/lib/sddm/sddm.conf.d/default.conf
+# sed -i 's/^Current=$/Current=catpuccin-mocha/' /etc/sddm.conf.d
+sed -i 's/^Current=$/Current=catppuccin-mocha/' /usr/lib/sddm/sddm.conf.d/default.conf
 
 # ZSH
-if ! pacman -Qs zsh; then
-    echo "Installing zsh..."
-    sudo pacman -S zsh
-fi
-
-if ! pacman -Qs curl; then
-    echo "Installing curl..."
-    sudo pacman -S curl
-fi
+sudo pacman -S --needed zsh curl--noconfirm
 
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
