@@ -16,7 +16,8 @@ hwclock -w
 
 # read -p "Kyemap:" _KeyMap
 _KeyMap="us"
-echo KEYMAP=$_KeyMap > /etc/vconsole.conf
+echo KEYMAP=$_KeyMap >> /etc/vconsole.conf
+echo "FONT=Goha-14" >> /etc/vconsole.conf
 
 read -p "PC Name:" _PCName
 echo $_PCName > /etc/hostname
