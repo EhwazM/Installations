@@ -140,7 +140,7 @@ qt6ct
 ranger
 realtime-privileges
 rofi-wayland
-rust
+rustup
 sane
 sane-airscan
 scrcpy

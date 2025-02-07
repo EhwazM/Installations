@@ -1,24 +1,30 @@
 #!/bin/bash
 set -e
 
+echo -e "Generating Locales... \n"
 # nvim /etc/locale.gen
 sed -i 's/^#\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen
 locale-gen
+
 # read -p "What locale did you choose?:" _LocaleGen
 _LocaleGen="en_US.UTF-8"
 echo LANG=$_LocaleGen > /etc/locale.conf
 export LANG=$_LocaleGen
 
-pacman -Sy
+pacman -Sy --noconfirm
+
+echo -e "Time Zone selection... \n"
 
 ln -sf /usr/share/zoneinfo/America/Bogota /etc/localtime
-hwclock -w
+hwclock --systohc
 
-# read -p "Kyemap:" _KeyMap
+echo -e "Setting Keymap and FONT... (us y Goha-14)\n"
+# read -p "Keymap:" _KeyMap
 _KeyMap="us"
 echo KEYMAP=$_KeyMap >> /etc/vconsole.conf
 echo "FONT=Goha-14" >> /etc/vconsole.conf
 
+echo -e "Setting PC and User Config... \n"
 read -p "PC Name:" _PCName
 echo $_PCName > /etc/hostname
 
@@ -43,9 +49,13 @@ passwd $_UserName
 
 sed -i "/root ALL=(ALL:ALL) ALL/a $_UserName ALL=(ALL:ALL) ALL" /etc/sudoers
 
+echo -e "Installing internet packages...\n"
+
 pacman -S --needed dhcp dhcpcd networkmanager iwd bluez bluez-utils --noconfirm
 systemctl enable dhcpcd NetworkManager
 systemctl enable bluetooth
+
+echo -e "Installing and configuring Grub... \n"
 
 pacman -S --needed grub efibootmgr os-prober --noconfirm
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch
@@ -57,6 +67,7 @@ sed -i "s/^#GRUB_DISABLE_OS_PROBER=false$/GRUB_DISABLE_OS_PROBER=false/" /etc/de
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
+echo -e "Pacman Config. \n"
 # nvim /etc/pacman.conf
 sed -i 's/^#Color$/Color/' /etc/pacman.conf
 sed -i 's/^#CheckSpace$/CheckSpace/' /etc/pacman.conf
@@ -68,13 +79,18 @@ sed -i "/#DisableSandbox/a ILoveCandy" /etc/pacman.conf
 sed -i 's/^#\[multilib\]$/[multilib]/' /etc/pacman.conf
 sed -i '/^\[multilib\]/,/^$/ s|^#Include = /etc/pacman.d/mirrorlist$|Include = /etc/pacman.d/mirrorlist|' /etc/pacman.conf
 
-pacman -Syu
+pacman -Syu --noconfirm
 
-pacman -S --needed xdg-user-dirs 
+echo -e "Setting Users directories. \n"
+pacman -S --needed xdg-user-dirs --noconfirm
 xdg-user-dirs-update
 su $_UserName -c "xdg-user-dirs-update"
 
+echo -e "Installing Misc. packages (fonts, browser, terminal...). \n"
+
 pacman -S --needed gnu-free-fonts ttf-hack ttf-inconsolata noto-fonts-emoji fastfetch lsb-release git firefox kitty --noconfirm
+
+systemctl enable fstrim.timer
 
 echo "you should umount everything with umount -R /mnt"
 
