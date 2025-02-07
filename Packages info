@@ -1,0 +1,77 @@
+### Clasificación de paquetes de Pacman y AUR
+
+A continuación, se describe la funcionalidad de cada paquete y se indica si es esencial para el sistema o no.
+
+#### **Paquetes esenciales para el sistema**
+Estos paquetes son fundamentales para el funcionamiento del sistema operativo y la gestión de hardware y red.
+
+- **base** - Conjunto mínimo de paquetes esenciales para Arch Linux.
+- **base-devel** - Herramientas básicas para compilación (make, gcc, etc.).
+- **linux-zen** - Núcleo Linux optimizado para rendimiento y latencia baja.
+- **linux-zen-headers** - Encabezados para compilar módulos del kernel.
+- **linux-firmware** - Firmware necesario para varios dispositivos de hardware.
+- **mkinitcpio** - Herramienta para generar imágenes initramfs.
+- **grub** - Cargador de arranque.
+- **efibootmgr** - Herramienta para gestionar entradas UEFI.
+- **dhcp** - Cliente y servidor DHCP.
+- **dhcpcd** - Cliente DHCP.
+- **networkmanager** - Gestor de red.
+- **net-tools** - Herramientas antiguas de red como ifconfig.
+- **iw** - Herramienta de configuración para dispositivos WiFi.
+- **iwd** - Demonio alternativo para la gestión de WiFi.
+- **openssh** - Implementación de SSH.
+- **os-prober** - Detecta otros sistemas operativos para el gestor de arranque.
+- **xf86-input-libinput** - Controlador de entrada para dispositivos de entrada.
+- **xf86-video-amdgpu** - Controlador de video para tarjetas AMD.
+- **xf86-video-vesa** - Controlador genérico de video.
+- **xorg-server** - Servidor gráfico X.
+- **xorg-xinit** - Herramienta para inicializar X manualmente.
+
+#### **Paquetes importantes pero no críticos**
+Son útiles para muchas configuraciones, pero no son indispensables para el arranque o la estabilidad del sistema.
+
+- **alsa-utils** - Herramientas para configurar ALSA (audio).
+- **blueman** - Gestor de dispositivos Bluetooth.
+- **bluez** - Implementación de Bluetooth en Linux.
+- **bluez-utils** - Utilidades adicionales para Bluetooth.
+- **pipewire-alsa** - Backend ALSA para PipeWire.
+- **pipewire-pulse** - Reemplazo de PulseAudio basado en PipeWire.
+- **pavucontrol** - Controlador de volumen para PulseAudio/PipeWire.
+- **sddm** - Gestor de inicio de sesión gráfico.
+- **qt6ct** - Configuración de apariencia para Qt6.
+- **xdg-user-dirs** - Crea y administra directorios de usuario.
+- **lsb-release** - Información sobre la distribución del sistema.
+- **smartmontools** - Diagnóstico y monitoreo de discos duros.
+
+#### **Paquetes opcionales (uso general o personalización)**
+Estos paquetes agregan funcionalidades específicas y son útiles para ciertos casos de uso.
+
+- **alacritty** - Emulador de terminal GPU-accelerated.
+- **firefox** - Navegador web.
+- **gimp** - Editor de imágenes.
+- **blender** - Software de modelado 3D.
+- **libreoffice-still** - Suite ofimática.
+- **thunderbird** - Cliente de correo electrónico.
+- **vlc** - Reproductor multimedia.
+- **texstudio** - Editor de documentos LaTeX.
+- **texlive-* (varios paquetes)** - Distribución de LaTeX.
+- **hyprland** - Gestor de ventanas para Wayland.
+- **obs-studio** - Software para streaming y grabación.
+- **nemo** - Administrador de archivos.
+- **prismlauncher** - Cliente alternativo para Minecraft.
+- **paru** - Ayudante para AUR.
+- **git** - Sistema de control de versiones.
+- **dotnet-sdk** - Kit de desarrollo de .NET.
+- **jdk21-openjdk** - Kit de desarrollo de Java.
+- **python-virtualenv** - Aislamiento de entornos Python.
+- **steam** - Plataforma de videojuegos.
+- **wine** - Ejecución de aplicaciones de Windows en Linux.
+- **rust** - Lenguaje de programación.
+- **visual-studio-code-bin** - Editor de código.
+- **vimix-gtk-themes** - Temas GTK personalizados.
+- **noto-fonts-emoji** - Fuentes con soporte para emojis.
+- **ttf-fira-sans** - Fuente tipográfica Fira Sans.
+- **kvantum** - Tema para aplicaciones Qt.
+- **waybar** - Barra de estado para Wayland.
+
+Este archivo clasifica y describe la funcionalidad de cada paquete para facilitar su identificación y gestión.

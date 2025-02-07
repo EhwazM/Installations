@@ -24,7 +24,7 @@ btop
 calc
 calcure
 catppuccin-sddm-theme-mocha
-cemu
+cemu-bin
 clinfo
 cliphist
 cups
@@ -180,6 +180,7 @@ texlive-xetex
 texstudio
 thunderbird
 tree
+ttf-dejavu-nerd
 ttf-fira-sans
 ttf-font-awesome
 ttf-google-fonts-git
