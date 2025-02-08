@@ -76,7 +76,7 @@ echo -e "Configuring sddm... \n"
 
 sudo systemctl enable sddm.service
 # sed -i 's/^Current=$/Current=catpuccin-mocha/' /etc/sddm.conf.d
-sed -i 's/^Current=$/Current=catppuccin-mocha/' /usr/lib/sddm/sddm.conf.d/default.conf
+sudo sed -i 's/^Current=$/Current=catppuccin-mocha/' /usr/lib/sddm/sddm.conf.d/default.conf
 
 # ZSH
 echo -e "Configuring zsh... \n"
