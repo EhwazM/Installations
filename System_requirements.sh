@@ -14,7 +14,7 @@ systemctl start --now NetworkManager.service
 # Installing Stow and dotfiles
 echo -e "Installing Stow and dotfiles... \n"
 
-sudo pacman -S --needed stow 
+sudo pacman -S --needed stow rustup
 
 if [ ! -d ~/EhwazM-dotfiles ]; then
     echo -e "Dotfiles are not in the system, cloning... \n"
@@ -42,6 +42,11 @@ echo -e "Installing tiling manager (Hyprland)... \n"
 sudo pacman -S --needed hyprland brightnessctl pavucontrol waybar rofi-wayland cliphist sddm ranger ttf-nerd-fonts-symbols ttf-font-awesome breeze breeze-gtk gnome-keyring nwg-look qt6ct grim slurp xdg-desktop-portal-hyprland wev 
 
 # Installing Paru
+echo -e "Updating rustup... \n"
+
+rustup install stable
+rustup default stable
+
 echo -e "Installing Paru... \n"
 
 cd ~
