@@ -51,7 +51,7 @@ sed -i "/root ALL=(ALL:ALL) ALL/a $_UserName ALL=(ALL:ALL) ALL" /etc/sudoers
 
 echo -e "Installing internet packages...\n"
 
-pacman -S --needed dhcp dhcpcd networkmanager iwd bluez bluez-utils --noconfirm
+pacman -S --needed dhcp dhcpcd networkmanager iwd bluez bluez-utils
 systemctl enable dhcpcd NetworkManager
 systemctl enable bluetooth
 
@@ -88,9 +88,12 @@ su $_UserName -c "xdg-user-dirs-update"
 
 echo -e "Installing Misc. packages (fonts, browser, terminal...). \n"
 
-pacman -S --needed gnu-free-fonts ttf-hack ttf-inconsolata noto-fonts-emoji fastfetch lsb-release git firefox kitty --noconfirm
+pacman -S --needed gnu-free-fonts ttf-hack ttf-inconsolata noto-fonts-emoji fastfetch lsb-release git firefox kitty 
 
 systemctl enable fstrim.timer
+
+sudo -u "$_UserName" git clone https://github.com/EhwazM/Installations.git /home/"$_UserName"/Installations
+chmod +x /home/"$_UserName"/Installations/System_requirements.sh
 
 echo "you should umount everything with umount -R /mnt"
 

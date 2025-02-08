@@ -14,7 +14,7 @@ systemctl start --now NetworkManager.service
 # Installing Stow and dotfiles
 echo -e "Installing Stow and dotfiles... \n"
 
-sudo pacman -S --needed stow rustup
+sudo pacman -S --needed stow 
 
 if [ ! -d ~/EhwazM-dotfiles ]; then
     echo -e "Dotfiles are not in the system, cloning... \n"
@@ -29,17 +29,17 @@ cd ~
 # Install video drivers:
 echo -e "Installing video drivers (AMD)... \n"
 
-sudo pacman -S --needed xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon vulkan-tools mesa lib32-mesa libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vdpauinfo clinfo --noconfirm
+sudo pacman -S --needed xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon vulkan-tools mesa lib32-mesa libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vdpauinfo clinfo 
 
 # Install audio drivers:
 echo -e "Installing audio drivers (Pipewire)... \n"
 
-sudo pacman -S --needed pipewire pipewire-audio gst-plugin-pipewire pipewire-alsa pipewire-jack pipewire-pulse pipewire-roc wireplumber realtime-privileges --noconfirm
+sudo pacman -S --needed pipewire pipewire-audio gst-plugin-pipewire pipewire-alsa pipewire-jack pipewire-pulse pipewire-roc wireplumber realtime-privileges 
 
 # If you want to use Hyprland:
 echo -e "Installing tiling manager (Hyprland)... \n"
 
-sudo pacman -S hyprland brightnessctl pavucontrol waybar rofi-wayland cliphist sddm ranger ttf-nerd-fonts-symbols ttf-font-awesome breeze breeze-gtk gnome-keyring nwg-look qt6ct grim slurp xdg-desktop-portal-hyprland wev --noconfirm
+sudo pacman -S --needed hyprland brightnessctl pavucontrol waybar rofi-wayland cliphist sddm ranger ttf-nerd-fonts-symbols ttf-font-awesome breeze breeze-gtk gnome-keyring nwg-look qt6ct grim slurp xdg-desktop-portal-hyprland wev 
 
 # Installing Paru
 echo -e "Installing Paru... \n"
@@ -55,7 +55,7 @@ cd ~
 echo -e "Installing all the packages from the list (pkglist.txt)...\n"
 
 paru -Syu
-paru -S --needed `cat ~/Installations/pkglist.txt` --noconfirm
+paru -S --needed `cat ~/Installations/pkglist.txt`
 
 # Hyprsome
 echo -e "Installing Hyprsome... \n"
