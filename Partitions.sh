@@ -36,8 +36,7 @@ swapon /dev/"$_SWAP"
 
 while true; do
     read -p "root name:" _RootName
-    echo -e "\nIs '$_RootName' the corret name? (y/n):"
-    read _YesNotR
+    read -p "Is '$_RootName' the correct name? (y/n):" _YesNotR
     if [ "$_YesNotR" = "y" ]; then
         break 
     fi
