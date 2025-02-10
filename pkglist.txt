@@ -54,6 +54,7 @@ grim
 grub
 gst-plugin-pipewire
 gthumb
+gvfs
 heroic-games-launcher-bin
 hplip
 hunspell-en_us
