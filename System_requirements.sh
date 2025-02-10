@@ -36,7 +36,23 @@ echo -e "Installing audio drivers (Pipewire)... \n"
 
 sudo pacman -S --needed pipewire pipewire-audio gst-plugin-pipewire pipewire-alsa pipewire-jack pipewire-pulse pipewire-roc wireplumber realtime-privileges 
 
-# If you want to use Hyprland:
+# Deciding WM or DE
+echo -e "\nChoose either Hyprland or KDE Plasma:\n"
+echo -e "1. Hyprland (default)"
+echo -e "2. KDE Plasma"
+
+while true; do
+    read -p "Choose: " _Tiling
+    if [ "$_Tiling" = "1" ] || [ -z "$_Tiling" ]; then
+        echo -e "Installing tiling manager (Hyprland)... \n"
+        sudo pacman -S --needed hyprland brightnessctl pavucontrol waybar rofi-wayland cliphist sddm ranger ttf-nerd-fonts-symbols ttf-font-awesome breeze breeze-gtk gnome-keyring nwg-look qt6ct grim slurp xdg-desktop-portal-hyprland wev
+        break
+    elif [ "$_Tiling" = "2" ]; then
+        echo -e "Installing desktop Environment (KDE Plasma)... \n"
+        sudo pacman -S plasma ark dolphin kdeconnect kwallet spectacle okular gthub plasma-workspace egl-wayland
+        break
+    fi
+done
 echo -e "Installing tiling manager (Hyprland)... \n"
 
 sudo pacman -S --needed hyprland brightnessctl pavucontrol waybar rofi-wayland cliphist sddm ranger ttf-nerd-fonts-symbols ttf-font-awesome breeze breeze-gtk gnome-keyring nwg-look qt6ct grim slurp xdg-desktop-portal-hyprland wev 
