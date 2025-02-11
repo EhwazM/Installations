@@ -193,6 +193,7 @@ ttf-hack
 ttf-inconsolata
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
+tumbler
 udiskie
 unityhub
 unrar
