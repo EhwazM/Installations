@@ -18,7 +18,6 @@ blender
 blueman
 bluez
 bluez-utils
-bottles
 breeze
 breeze-gtk
 brightnessctl
@@ -73,6 +72,8 @@ jdk21-openjdk
 jq
 julia
 kdeconnect
+kicad
+kicad-library
 kitty
 kvantum
 languagetool
