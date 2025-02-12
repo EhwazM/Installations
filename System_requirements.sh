@@ -63,14 +63,15 @@ echo -e "Updating rustup... \n"
 rustup install stable
 rustup default stable
 
-echo -e "Installing Paru... \n"
-
-cd ~
-sudo pacman -S --needed base-devel
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
-cd ~
+if [ ! -d ~/paru ]; then
+    echo -e "Installing Paru... \n"
+    cd ~
+    sudo pacman -S --needed base-devel
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si
+    cd ~
+fi
 
 read -p "Do you want to install misc packages from pkglist.txt? (y/n): " _YesNotMP
 
