@@ -75,7 +75,7 @@ fi
 
 read -p "Do you want to install misc packages from pkglist.txt? (y/n): " _YesNotMP
 
-if [ "$_YesNotMP" = "y" ] || [ -z "$_YesnotMP" ]; then
+if [ "$_YesNotMP" = "y" ] || [ -z "$_YesNotMP" ]; then
     # Misc Packages
     echo -e "Installing all the packages from the list (pkglist.txt)...\n"
 
