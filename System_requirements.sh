@@ -3,7 +3,7 @@ set -e
 
 read -p "Do you need to connect to wi-fi? (y/n)" _YesNotWIFI
 
-if [ "$_YesNotWIFI" = "y" ]; then
+if [ "$_YesNotWIFI" = "y" ] || [ -z "$_YesNotWIFI" ]; then
     read -p "Red Name:" _RedName
     read -p "password:" _RedPassword
     nmcli device wifi connect "$_RedName" password "$_RedPassword"

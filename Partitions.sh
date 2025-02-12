@@ -6,7 +6,7 @@ timedatectl set-ntp true
 
 read -p "Do you need to connect to wi-fi? (y/n)" _YesNotWIFI
 
-if [ "$_YesNotWIFI" = "y" ]; then
+if [ "$_YesNotWIFI" = "y" ] || [ -z "$_YesNotWIFI" ]; then
     read -p "Red Name:" _RedName
     read -p "password:" _RedPassword
     iwctl --passphrase "$_RedPassword" station wlan0 connect "$_RedName"
@@ -21,7 +21,7 @@ while true; do
     echo -e "\nAre you sure this is correct? EFI=$_EFI, SWAP=$_SWAP, FS=$_FS. (y/n)"
     read _YesNotP
     
-    if [ "$_YesNotP" = "y" ]; then
+    if [ "$_YesNotP" = "y" ] || [ -z "$_YesNotP" ]; then
         echo -e "\nPartition names are set."
         break
     fi
@@ -37,7 +37,7 @@ swapon /dev/"$_SWAP"
 while true; do
     read -p "root name:" _RootName
     read -p "Is '$_RootName' the correct name? (y/n):" _YesNotR
-    if [ "$_YesNotR" = "y" ]; then
+    if [ "$_YesNotR" = "y" ] || [ -z "$_YesNotR" ]; then
         break 
     fi
 done
@@ -61,7 +61,7 @@ pacman -Sy --noconfirm
 
 echo -e "Installing basic packages for the installation. \n"
 
-if [ "$_YesNot2" = "y" ]; then
+if [ "$_YesNot2" = "y" ] || [ -z "$_YesNot2" ]; then
     pacstrap -K /mnt git curl base base-devel neovim linux-zen linux-zen-headers linux-firmware mkinitcpio xf86-input-libinput
 else
     pacstrap -K /mnt git curl base base-devel neovim linux-zen linux-zen-headers linux-firmware mkinitcpio

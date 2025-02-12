@@ -29,7 +29,7 @@ echo -e "Setting PC and User Config... \n"
 while true; do
     read -p "PC Name:" _PCName
     read -p "Is '$_PCName' the correct name? (y/n):" _YesNotPC
-    if [ "$_YesNotPC" = "y" ]; then
+    if [ "$_YesNotPC" = "y" ] || [ -z "$_YesNotPC" ]; then
         echo $_PCName > /etc/hostname
         break 
     fi
@@ -50,7 +50,7 @@ passwd
 while true; do
     read -p "User Name:" _UserName
     read -p "Is '$_UserName' the correct name? (y/n):" _YesNotUN
-    if [ "$_YesNotUN" = "y" ]; then
+    if [ "$_YesNotUN" = "y" ] || [ -z "$_YesNotUN" ]; then
         break 
     fi
 done
