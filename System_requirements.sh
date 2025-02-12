@@ -49,7 +49,7 @@ while true; do
         break
     elif [ "$_Tiling" = "2" ]; then
         echo -e "Installing desktop Environment (KDE Plasma)... \n"
-        sudo pacman -S plasma ark dolphin kdeconnect kwallet spectacle okular gthub plasma-workspace egl-wayland
+        sudo pacman -S plasma ark dolphin kdeconnect kwallet spectacle okular plasma-workspace egl-wayland
         break
     fi
 done
