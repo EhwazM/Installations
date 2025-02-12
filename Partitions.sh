@@ -14,7 +14,7 @@ fi
 
 _PartitionsNames=0
 while true; do
-    echo "\nName your partitions after you created them:"
+    echo -e "\nName your partitions after you created them:"
     read -p "EFI: " _EFI
     read -p "SWAP: " _SWAP
     read -p "FS: " _FS

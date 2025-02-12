@@ -72,11 +72,15 @@ cd paru
 makepkg -si
 cd ~
 
-# Misc Packages
-echo -e "Installing all the packages from the list (pkglist.txt)...\n"
+read -p "Do you want to install misc packages from pkglist.txt? (y/n): " _YesNotMP
 
-paru -Syu
-paru -S --needed `cat ~/Installations/pkglist.txt`
+if [ "$_YesNotMP" = "y" ] || [ -z "$_YesnotMP" ]; then
+    # Misc Packages
+    echo -e "Installing all the packages from the list (pkglist.txt)...\n"
+
+    paru -Syu
+    paru -S --needed `cat ~/Installations/pkglist.txt`
+fi
 
 # Hyprsome
 echo -e "Installing Hyprsome... \n"
