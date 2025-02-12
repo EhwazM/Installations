@@ -71,7 +71,6 @@ iwd
 jdk21-openjdk
 jq
 julia
-kdeconnect
 kicad
 kicad-library
 kitty
