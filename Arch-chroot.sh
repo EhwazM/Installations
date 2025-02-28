@@ -36,13 +36,7 @@ while true; do
 done
 
 # nvim /etc/hosts
-echo "
-127.0.0.1     localhost
-
-::1           localhost
-
-127.0.1.1     $_PCName.localdomain $_PCName" >> /etc/hosts
-
+echo -e "\n127.0.0.1     localhost\n\n::1           localhost\n\n127.0.1.1     $_PCName.localdomain $_PCName" >> /etc/hosts
 
 echo -e "\nSet root password:"
 passwd

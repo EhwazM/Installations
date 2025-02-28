@@ -80,7 +80,7 @@ if [ "$_YesNotMP" = "y" ] || [ -z "$_YesNotMP" ]; then
     echo -e "Installing all the packages from the list (pkglist.txt)...\n"
 
     paru -Syu
-    paru -S --needed `cat ~/Installations/pkglist.txt`
+    paru -S --needed - < ~/Installations/pkglist.txt
 fi
 
 # Hyprsome
@@ -98,6 +98,13 @@ echo -e "Configuring sddm... \n"
 sudo systemctl enable sddm.service
 # sed -i 's/^Current=$/Current=catpuccin-mocha/' /etc/sddm.conf.d
 sudo sed -i 's/^Current=$/Current=catppuccin-mocha/' /usr/lib/sddm/sddm.conf.d/default.conf
+
+# Bluetooth fix
+sudo sh -c 'echo -e "[connection]\nwifi.powersave = 2" > /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf'
+
+# Thunar terminal
+
+echo -e "TerminalEmulator=kitty\nTerminalEmulatorDismissed=true" > ~/.config/xfce4/helpers.rc
 
 # ZSH
 echo -e "Configuring zsh... \n"
