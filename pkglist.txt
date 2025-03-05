@@ -51,6 +51,7 @@ git
 github-desktop-bin
 gnome-keyring
 gnu-free-fonts
+godot
 gparted
 grim
 grub
