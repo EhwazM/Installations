@@ -46,6 +46,7 @@ fcitx5-gtk
 fcitx5-qt
 firefox
 fzf
+geogebra
 gimp
 git
 github-desktop-bin
@@ -56,6 +57,7 @@ gparted
 grim
 grub
 gst-plugin-pipewire
+gst-plugins-base
 gthumb
 gvfs
 heroic-games-launcher-bin
@@ -75,6 +77,7 @@ jq
 julia
 kicad
 kicad-library
+kicad-library-3d
 kitty
 kvantum
 languagetool
@@ -91,7 +94,7 @@ linux-firmware-nfp
 linux-firmware-qlogic
 linux-zen
 linux-zen-headers
-logisim
+logisim-evolution
 lsb-release
 mako
 melonds
@@ -109,6 +112,7 @@ noto-fonts-emoji
 noto-fonts-extra
 npm
 nss-mdns
+nwg-displays
 nwg-look
 obs-studio
 okular
@@ -189,6 +193,7 @@ thunar-media-tags-plugin
 thunar-shares-plugin
 thunar-volman
 thunderbird
+tldr
 tree
 ttf-dejavu-nerd
 ttf-fira-sans
