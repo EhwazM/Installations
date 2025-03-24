@@ -60,6 +60,7 @@ gst-plugin-pipewire
 gst-plugins-base
 gthumb
 gvfs
+hdparm
 heroic-games-launcher-bin
 hplip
 hunspell-en_us
@@ -153,6 +154,7 @@ rustup
 sane
 sane-airscan
 scrcpy
+screen
 sddm
 simple-scan
 slurp
