@@ -5,8 +5,6 @@ anthy
 arch-install-scripts
 archlinux-xdg-menu
 arduino-cli
-arduino-ide
-arduino-language-server
 ark
 ast-firmware
 base
@@ -30,7 +28,6 @@ cliphist
 cpupower
 cups
 curl
-dhcp
 dhcpcd
 discord
 dnsmasq
