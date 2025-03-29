@@ -28,9 +28,9 @@ cliphist
 cpupower
 cups
 curl
+dhcp
 dhcpcd
 discord
-dnsmasq
 dosfstools
 dotnet-sdk
 ds4drv
