@@ -97,6 +97,7 @@ lsb-release
 mako
 melonds
 mkinitcpio
+mpv
 mythes-es
 ncdu
 neovim
@@ -113,6 +114,7 @@ nss-mdns
 nwg-displays
 nwg-look
 obs-studio
+obsidian
 okular
 os-prober
 otf-fira-sans
@@ -171,6 +173,7 @@ texlive-fontutils
 texlive-formatsextra
 texlive-games
 texlive-humanities
+texlive-langcjk
 texlive-langgreek
 texlive-langspanish
 texlive-latex
