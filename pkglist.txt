@@ -20,7 +20,6 @@ breeze-gtk
 brightnessctl
 btop
 calc
-calcure
 catppuccin-sddm-theme-mocha
 cemu-bin
 clinfo
@@ -173,7 +172,6 @@ texlive-fontutils
 texlive-formatsextra
 texlive-games
 texlive-humanities
-texlive-langcjk
 texlive-langgreek
 texlive-langspanish
 texlive-latex
