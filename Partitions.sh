@@ -62,9 +62,9 @@ pacman -Sy --noconfirm
 echo -e "Installing basic packages for the installation. \n"
 
 if [ "$_YesNot2" = "y" ] || [ -z "$_YesNot2" ]; then
-    pacstrap -K /mnt git curl base base-devel neovim linux-zen linux-zen-headers linux-firmware mkinitcpio xf86-input-libinput
+    pacstrap -K /mnt git curl base base-devel neovim linux linux-headers linux-firmware mkinitcpio xf86-input-libinput
 else
-    pacstrap -K /mnt git curl base base-devel neovim linux-zen linux-zen-headers linux-firmware mkinitcpio
+    pacstrap -K /mnt git curl base base-devel neovim linux linux-headers linux-firmware mkinitcpio
 fi
 
 echo -e "Generating Fstab... \n"
