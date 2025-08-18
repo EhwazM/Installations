@@ -63,22 +63,22 @@ pacman -S --needed dhcp dhcpcd networkmanager iwd bluez bluez-utils
 systemctl enable dhcpcd NetworkManager
 systemctl enable bluetooth
 
-# echo -e "Installing and configuring Grub... \n"
-#
-# pacman -S --needed grub efibootmgr os-prober --noconfirm
-# grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch
-# grub-install --target=x86_64-efi --efi-directory=/boot/efi --removable
-#
-# # nvim /etc/default/grub
-# sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"$/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3"/' /etc/default/grub
-# sed -i "s/^#GRUB_DISABLE_OS_PROBER=false$/GRUB_DISABLE_OS_PROBER=false/" /etc/default/grub
-#
-# grub-mkconfig -o /boot/grub/grub.cfg
+echo -e "Installing and configuring Grub... \n"
 
-echo -e "Installing rEFInd"
+pacman -S --needed grub efibootmgr os-prober --noconfirm
+grub-install --target=x86_64-efi --efi-directory=/boot/ --bootloader-id=Arch
+grub-install --target=x86_64-efi --efi-directory=/boot/ --removable
 
-pacman -S refind efibootmgr os-prober
-refind-install
+# nvim /etc/default/grub
+sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"$/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3"/' /etc/default/grub
+sed -i "s/^#GRUB_DISABLE_OS_PROBER=false$/GRUB_DISABLE_OS_PROBER=false/" /etc/default/grub
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# echo -e "Installing rEFInd"
+#
+# pacman -S refind efibootmgr os-prober
+# refind-install
 
 echo -e "Pacman Config. \n"
 # nvim /etc/pacman.conf

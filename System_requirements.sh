@@ -45,7 +45,7 @@ while true; do
     read -p "Choose: " _Tiling
     if [ "$_Tiling" = "1" ] || [ -z "$_Tiling" ]; then
         echo -e "Installing tiling manager (Hyprland)... \n"
-        sudo pacman -S --needed hyprland brightnessctl pavucontrol waybar rofi-wayland cliphist sddm ranger ttf-nerd-fonts-symbols ttf-font-awesome breeze breeze-gtk gnome-keyring nwg-look qt6ct grim slurp xdg-desktop-portal-hyprland wev
+        sudo pacman -S --needed hyprland brightnessctl pavucontrol waybar rofi-wayland cliphist sddm ranger ttf-nerd-fonts-symbols ttf-font-awesome breeze breeze-gtk gnome-keyring nwg-look grim slurp xdg-desktop-portal-hyprland wev
         break
     elif [ "$_Tiling" = "2" ]; then
         echo -e "Installing desktop Environment (KDE Plasma)... \n"
@@ -55,7 +55,7 @@ while true; do
 done
 echo -e "Installing tiling manager (Hyprland)... \n"
 
-sudo pacman -S --needed hyprland brightnessctl pavucontrol waybar rofi-wayland cliphist sddm ranger ttf-nerd-fonts-symbols ttf-font-awesome breeze breeze-gtk gnome-keyring nwg-look qt6ct grim slurp xdg-desktop-portal-hyprland wev 
+sudo pacman -S --needed hyprland brightnessctl pavucontrol waybar rofi-wayland cliphist sddm ranger ttf-nerd-fonts-symbols ttf-font-awesome breeze breeze-gtk gnome-keyring nwg-look  grim slurp xdg-desktop-portal-hyprland wev 
 
 # Installing Paru
 echo -e "Updating rustup... \n"
@@ -80,9 +80,8 @@ if [ "$_YesNotMP" = "y" ] || [ -z "$_YesNotMP" ]; then
     echo -e "Installing all the packages from the list (pkglist.txt)...\n"
 
     paru -Syu
-    paru -S --needed - < ~/Installations/pkglist.txt
+    xargs -a ~/Installations/pkglist.txt paru -Syu --needed
 fi
-
 # Hyprsome
 echo -e "Installing Hyprsome... \n"
 

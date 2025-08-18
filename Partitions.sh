@@ -51,8 +51,8 @@ echo -e "Partitions have been formatted. \n"
 echo -e "Mounting partitions... \n"
 
 mount /dev/"$_FS" /mnt/
-mkdir -p /mnt/boot/efi/
-mount /dev/"$_EFI" /mnt/boot/efi/
+mkdir -p /mnt/boot/
+mount /dev/"$_EFI" /mnt/boot/
 
 echo -e "Partitions have been mounted. \n"
 read -p "Do you have Laptop?: (y/n)" _YesNot2
