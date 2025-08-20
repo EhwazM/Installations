@@ -81,7 +81,7 @@ if [ "$_pkg" = "1" ] || [ -z "$_YesNotMP" ]; then
 
     paru -Syu
     xargs -a ~/Installations/pkglist.txt paru -Syu --needed
-elif ["$_pkg" = "2"]; then
+elif [ "$_pkg" = "2" ]; then
     echo -e "Installing all the packages from the list (pkglist-pure.txt)...\n"
 
     paru -Syu
