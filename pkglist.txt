@@ -1,6 +1,5 @@
 alacritty
 alsa-utils
-android-studio
 android-tools
 anthy
 arch-install-scripts
@@ -98,13 +97,12 @@ libreoffice-still
 links
 linux
 linux-firmware
-linux-firmware-broadcom
 linux-firmware-liquidio
 linux-firmware-mellanox
 linux-firmware-nfp
 linux-firmware-qlogic
 linux-headers
-logisim-evolution
+logisim-evolution-bin
 lsb-release
 mako
 melonds
@@ -145,6 +143,7 @@ poweralertd
 print-manager
 prismlauncher
 protontricks
+prusa-slicer
 pyenv
 pyside6-tools
 python-adblock
@@ -240,6 +239,7 @@ wev
 wget
 wimlib
 wine
+wireless_tools
 wlogout
 woff2-font-awesome
 xdg-desktop-portal-hyprland
