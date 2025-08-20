@@ -75,10 +75,14 @@ sed -i "s/^#GRUB_DISABLE_OS_PROBER=false$/GRUB_DISABLE_OS_PROBER=false/" /etc/de
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
-# echo -e "Installing rEFInd"
-#
-# pacman -S refind efibootmgr os-prober
-# refind-install
+echo -e "Installing rEFInd"
+
+pacman -S refind efibootmgr os-prober
+refind-install
+
+rt_uuid=$(awk '$2 == "/" && $1 ~ /^UUID=/ {sub("UUID=","",$1); print $1}' /etc/fstab)
+
+echo -e '"Boot with standard options"  "root=UUID='$rt_uuid' rw loglevel=3"\n"Boot to single-user mode"    "root=UUID='$rt_uuid' rw loglevel=3 single"\n"Boot with minimal options"   "ro root=/dev/'$1'"' > /boot/refind_linux.conf
 
 echo -e "Pacman Config. \n"
 # nvim /etc/pacman.conf
@@ -109,5 +113,5 @@ sudo -u "$_UserName" git clone https://github.com/EhwazM/Installations.git /home
 chmod +x /home/"$_UserName"/Installations/System_requirements.sh
 
 echo "you should umount everything with umount -R /mnt"
+echo "Remember to configure /boot/refind_linux.conf"
 
-exit

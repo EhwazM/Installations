@@ -79,7 +79,7 @@ cp Installations/Arch-chroot.sh /mnt/
 
 echo -e "Entering Arch-chroot environment... \n"
 
-arch-chroot /mnt /bin/bash -c /Arch-chroot.sh
+arch-chroot /mnt /bin/bash -c '/Arch-chroot.sh "$1"' _ "$_FS"
 
 umount -R /mnt/
 swapoff /dev/"$_SWAP"
