@@ -73,14 +73,19 @@ if [ ! -d ~/paru ]; then
     cd ~
 fi
 
-read -p "Do you want to install misc packages from pkglist.txt? (y/n): " _YesNotMP
+read -p "Do you want to install misc packages from pkglist.txt or pkglist-pure.txt? (1/2/n): " _pkg
 
-if [ "$_YesNotMP" = "y" ] || [ -z "$_YesNotMP" ]; then
+if [ "$_pkg" = "1" ] || [ -z "$_YesNotMP" ]; then
     # Misc Packages
     echo -e "Installing all the packages from the list (pkglist.txt)...\n"
 
     paru -Syu
     xargs -a ~/Installations/pkglist.txt paru -Syu --needed
+elif ["$_pkg" = "2"]; then
+    echo -e "Installing all the packages from the list (pkglist-pure.txt)...\n"
+
+    paru -Syu
+    xargs -a ~/Installations/pkglist-pure.txt paru -Syu --needed
 fi
 # Hyprsome
 echo -e "Installing Hyprsome... \n"
