@@ -1,3 +1,4 @@
+aic94xx-firmware
 alacritty
 alsa-utils
 android-tools
@@ -109,6 +110,7 @@ melonds
 mkinitcpio
 modem-manager-gui
 mpv
+mtools
 mythes-es
 ncdu
 neovim

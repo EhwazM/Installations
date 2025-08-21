@@ -1,6 +1,7 @@
 alacritty
 alsa-utils
 android-tools
+anthy
 arch-install-scripts
 archlinux-xdg-menu
 arduino-cli
@@ -99,6 +100,7 @@ mako
 mkinitcpio
 modem-manager-gui
 mpv
+mtools
 mythes-es
 ncdu
 neovim
@@ -127,6 +129,7 @@ pipewire-pulse
 pipewire-roc
 polkit-gnome
 print-manager
+prismlauncher
 prusa-slicer
 pyenv
 pyside6-tools
@@ -158,6 +161,7 @@ simple-scan
 slurp
 smartmontools
 sshfs
+steam
 stow
 system-config-printer
 texlive-basic
@@ -264,13 +268,16 @@ xorg-xwininfo
 xorg-xwud
 xournalpp
 zsh
+aic94xx-firmware
 ast-firmware
 catppuccin-sddm-theme-mocha
 cemu-bin
 ds4drv
 foo2zjs-nightly
 github-desktop-bin
+heroic-games-launcher-bin
 logisim-evolution-bin
+melonds
 nordic-darker-theme
 nordic-theme
 paru
@@ -280,6 +287,7 @@ qt6ct-kde
 rstudio-desktop-bin
 swaylock-effects-git
 ttf-google-fonts-git
+unityhub
 upd72020x-fw
 vimix-gtk-themes
 visual-studio-code-bin
